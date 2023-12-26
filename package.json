@@ -1,0 +1,214 @@
+{
+  "name": "pullflow",
+  "publisher": "Pullflow",
+  "displayName": "Pullflow",
+  "description": "Code review collaboration across GitHub, Slack, and VS Code.",
+  "version": "1.2.1",
+  "preview": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "author": {
+    "name": "Pullflow"
+  },
+  "icon": "assets/pullflow.png",
+  "categories": [
+    "Programming Languages",
+    "Machine Learning",
+    "Education",
+    "Snippets",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#F6F4F9",
+    "theme": "light"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pullflow/vscode-pullflow"
+  },
+  "bugs": {
+    "url": "https://github.com/pullflow/vscode-pullflow/issues"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onUri"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pullflow.active-pull-requests",
+        "title": "Pullflow: Active Pull Requests"
+      },
+      {
+        "command": "pullflow.signIn",
+        "title": "Pullflow: Sign in"
+      },
+      {
+        "command": "pullflow.signOut",
+        "title": "Pullflow: Sign out"
+      },
+      {
+        "command": "pullflow.reconnect",
+        "title": "Pullflow: Reconnect"
+      },
+      {
+        "command": "pullflow.toggle-flow-state",
+        "title": "Pullflow: Toggle Flow State"
+      },
+      {
+        "command": "pullflow.welcome-view",
+        "title": "Pullflow: Welcome"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pullflow.active-pull-requests",
+        "key": "ctrl+shift+,",
+        "mac": "cmd+shift+,"
+      }
+    ],
+    "icons": {
+      "pullflow-icon": {
+        "description": "Pullflow icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e90d"
+        }
+      },
+      "slack-icon": {
+        "description": "Slack icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e900"
+        }
+      },
+      "github-icon": {
+        "description": "GitHub icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e90b"
+        }
+      },
+      "approved-icon": {
+        "description": "Approved icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e905"
+        }
+      },
+      "review-icon": {
+        "description": "Review Requested icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e90a"
+        }
+      },
+      "checks-running-icon": {
+        "description": "Checks running icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e903"
+        }
+      },
+      "checks-failed-icon": {
+        "description": "Checks failed icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e904"
+        }
+      },
+      "checks-skipped-icon": {
+        "description": "Checks skipped icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e901"
+        }
+      },
+      "checks-passed-icon": {
+        "description": "Checks passed icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e902"
+        }
+      },
+      "review-comment-icon": {
+        "description": "Review comment icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e907"
+        }
+      },
+      "pr-open-icon": {
+        "description": "PR open icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e909"
+        }
+      },
+      "request-changes-icon": {
+        "description": "Request changes icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e906"
+        }
+      },
+      "draft-pr-icon": {
+        "description": "Draft PR icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e908"
+        }
+      },
+      "flow-state-icon": {
+        "description": "Flow-state icon",
+        "default": {
+          "fontPath": "./assets/Pullflow.woff",
+          "fontCharacter": "\\e90c"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.70.0",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "prettier": "^2.8.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "@octokit/rest": "^19.0.3",
+    "dotenv": "^16.0.3",
+    "jest": "^29.5.0",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.3.0",
+    "ts-jest": "^29.1.0",
+    "uuidv4": "^6.2.13"
+  }
+}
